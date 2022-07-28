@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div><h1>Jobs</h1></div>
+                             <%=paginate @jobs%>
+<table class='table'>
+  
+  <thead>
+    <tr>
+      <th>Job title</th>
+      <th>Salary</th>
+      <th>Experience</th>
+      <th>Skillset</th>
+      <th>Description</th>
+      <th>Show </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.job_title %></td>
+        <td><%= job.salary %></td>
+        <td><%= job.experience %></td>
+        <td><%= job.skillset %></td>
+        <td><%= job.description %></td>
+        <td><%= link_to 'Show', job ,class:'btn btn-lg btn-primary'%></td>
+        <% if can? :update, Job%>
+          <td><%= link_to 'Edit', edit_job_path(job),class:'btn btn-lg btn-success' %></td>
+          <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' },class:'btn btn-lg btn-danger' %></td>
+        <%end%>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%=paginate @jobs%>
+<br>
+<%if can? :create, Job%>
+  <%= link_to 'New Job', new_job_path %>
+<%end%>

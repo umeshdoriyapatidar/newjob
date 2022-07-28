@@ -1,0 +1,38 @@
+<%if user_signed_in? %>
+  <% if current_user.has_role?(:employer) %>
+    <div class="container text-center">
+      <h1 style="color:black">Creat new Job here</h1> 
+      <%= link_to 'Create a new job',new_job_path,class:'btn btn-lg btn-primary'%>
+      <%=link_to 'Sign Out',destroy_user_session_path,method: :delete,class: 'btn btn-lg btn-dark'%>
+    </div>
+
+  <%elsif current_user.has_role?(:applicant)%>
+    
+    <div class="container text-center" style="padding-top:250px">
+      
+        <h1 style="color:grey"> Welcome <%=current_user.name%></h1><br/>
+
+        <%= link_to 'New Jobs for you',jobs_path,class:'btn btn-lg btn-info'%><br/>
+        <br>
+        <%=link_to 'Sign Out',destroy_user_session_path,method: :delete,class: 'btn btn-lg btn-dark'%>
+        <%#<%= link_to 'Job_statu',applicant.applies.job,class:'btn btn-secondary my-2'%>
+    </div>
+  <%end%>
+<%else%>
+  <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Jober Home Page</title>
+      </head>
+      <body style="text-align: center !important; width: 60%; margin: 0 auto; margin: auto !important;">
+          <div class='container'>
+
+            <h1>Welcome</h1><h2>Who are you ...?</h2>
+          
+              <%= link_to 'Employee',new_user_registration_path(role:'employer'),class:"btn btn-lg btn-primary"%>
+              <%= link_to 'Applicant',new_user_registration_path(role:'applicant'),class:"btn btn-lg btn-primary"%>
+         
+          </div>
+      </body>
+    </html> 
+<%end%>

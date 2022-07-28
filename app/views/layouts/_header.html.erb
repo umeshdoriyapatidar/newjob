@@ -1,0 +1,36 @@
+</header>
+<nav class="navbar navbar-inverse">
+<div class="container">
+  <a class="navbar-brand" style="color:red" href='/'>NAUKRIWALLA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <%if user_signed_in?%>
+    
+        <% if current_user.has_role? :'employer' %>
+            
+                <%= link_to 'Home',root_path %>
+                <%= link_to 'Jobs',jobs_path%>
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+               
+    
+        <% elsif current_user.has_role? :'applicant' %>
+           
+                
+                    <li class="btn btn-outline-primary"><%= link_to 'Home',root_path%></li>
+                    <li class="btn btn-outline-primary"><%= link_to 'Find New Jobs',jobs_path%></li>
+                    <li class="btn btn-outline-primary"><%= link_to 'Profile/Edit',home_show_path%></li>
+                    <li class="btn btn-outline-primary"><%= link_to 'My jobs /Status', job_applications_index_path%></li>
+                    <li class="btn btn-outline-primary"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+           
+        <% else %>
+            <li>
+                 <li class="btn btn-outline-primary"><%= link_to 'Home',root_path%></li>
+            </li>
+
+        <% end %>
+      <%end%>
+</div>
+</nav>
+</header>

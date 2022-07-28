@@ -1,0 +1,8 @@
+<div>
+
+  <%= form_with url:"/verifyotp", method: :get, local: true do |f| %>
+    <%= f.label :OTP %>
+    <%= f.text_field :apply_otp, class:"form control" %>
+    <%= f.submit "Apply", class: "btn btn-lg btn-primary"%>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<h1 style="color:blue;">Profile</h1>
+<div class="htags">
+  <div class="container">
+    <ol>
+      <h3 style="color:black;"> <li>Name-:<strong> <%=@applicants.name%></strong></li></h3>
+      <h3 style="color:black"><li>Skills-:<strong> <%=@applicants.skills%></strong></li></h3>
+      <h3 style="color:black"><li>Address-:<strong><%=@applicants.address%></strong></li></h3>
+      <h3 style="color:black"><li>Details-:<strong><%=@applicants.description%></strong></li></h3>
+    </ol>
+    <%if current_user.has_role? :applicant%>
+      <%=link_to "Edit", edit_user_registration_path,method: :get, class:'btn btn-lg btn-outline-danger'%>
+    <%end%>
+  </div>
+</div>
