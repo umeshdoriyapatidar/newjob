@@ -17,7 +17,7 @@
         <%i=i+1%>
           <tr>
             <td scope="row"><h2><%=i%></h2></td>
-            <td scope="row"><h2><%= user.name%></h2></td>
+            <td scope="row"><h2><%= link_to (user.name),home_show_path(id:user.id),method: :get%></h2></td>
 
             <td scope="row"><h3 style='color:black'><%=job.status%></h3></td>
             <%if job.status=='hold'%>

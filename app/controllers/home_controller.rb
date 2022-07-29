@@ -6,8 +6,10 @@ class HomeController < ApplicationController
   
   def show
     if current_user.has_role? :applicant
-
       @applicants=User.find(current_user.id)
+    elsif(current_user.has_role? :employer)
+      @applicants=User.find(params[:id])
     end
+
   end
 end

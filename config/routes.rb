@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get 'verifyotp', to: 'job_applications#verifyotp'
   get 'job_applications/verify'
   get 'job_applications/destroy'
-  get 'home/show'
+  get  'home/show'
+  # delete 'jobs/:id' ,to: 'jobs#destroy'
   resources :jobs 
   # devise_for :users 
   

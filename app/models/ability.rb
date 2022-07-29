@@ -10,6 +10,7 @@ class Ability
       can :update, Job do |job|
         user.jobs.include?(job)
       end
+      can :destroy, Job
       can :user_application, JobApplication
       can :accept, JobApplication, user_id: user.id
       # can :destroy ,Job

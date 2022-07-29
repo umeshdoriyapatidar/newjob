@@ -24,10 +24,10 @@
         <td><%= job.experience %></td>
         <td><%= job.skillset %></td>
         <td><%= job.description %></td>
-        <td><%= link_to 'Show', job ,class:'btn btn-lg btn-primary'%></td>
+        <td><%= link_to 'Show', job,method: :get ,class:'btn btn-lg btn-primary'%></td>
         <% if can? :update, Job%>
           <td><%= link_to 'Edit', edit_job_path(job),class:'btn btn-lg btn-success' %></td>
-          <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' },class:'btn btn-lg btn-danger' %></td>
+          <td><%= button_to 'Destroy',job, method: :delete %></td>
         <%end%>      
       </tr>
     <% end %>
