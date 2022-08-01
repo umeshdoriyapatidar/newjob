@@ -15,12 +15,3 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.body1 {
-  background-image: image-url('background1.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  /* // background-color: #fff; */
-  color: #333;
-  margin: 33px;
-}
