@@ -31,7 +31,7 @@ gem 'rolify'
 gem 'kaminari'
 # add bootstrap sass
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
-
+gem 'sprockets', '~> 3.5', '>= 3.5.2'
 # gem 'sass-rails', '>= 3.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
